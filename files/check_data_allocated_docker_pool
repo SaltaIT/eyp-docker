@@ -3,7 +3,7 @@
 wval=70
 cval=80
 
-while getopts 'v:w:c:' OPTION
+while getopts 'd:w:c:' OPTION
 do
   case $OPTION in
   w)    wval="$OPTARG"
