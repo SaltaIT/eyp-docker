@@ -5,11 +5,9 @@
 # to the arguments list passed to docker -d
 
 # Modify these options if you want to change the way the docker daemon runs
-# OPTIONS='--selinux-enabled'
+OPTIONS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
 
-<% if defined?(@insecure_registry) -%>
-other_args="--insecure-registry <%= @insecure_registry %>:<%= @insecure_registry_port %>"
-<% end -%>
+
 DOCKER_CERT_PATH=/etc/docker
 
 # If you want to add your own registry to be used for docker search and docker
@@ -28,6 +26,9 @@ DOCKER_CERT_PATH=/etc/docker
 # distributed, you can tell docker to not look for full authorization by
 # adding the registry to the INSECURE_REGISTRY line and uncommenting it.
 # INSECURE_REGISTRY='--insecure-registry'
+<% if defined?(@insecure_registry) -%>
+INSECURE_REGISTRY="--insecure-registry <%= @insecure_registry %>:<%= @insecure_registry_port %>"
+<% end -%>
 
 # On an SELinux system, if you remove the --selinux-enabled option, you
 # also need to turn on the docker_transition_unconfined boolean.
