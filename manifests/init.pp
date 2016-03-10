@@ -7,6 +7,10 @@ class docker(
             ) inherits docker::params {
 
   #
+  Exec {
+    path => '/usr/sbin:/usr/bin:/sbin:/bin',
+  }
+
   package { $docker_package:
     ensure => 'installed',
   }
