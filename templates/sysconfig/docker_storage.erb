@@ -1,0 +1,6 @@
+<% if defined?(@devs) -%>
+DEVS="<% @devs.each do |val| %><%= val %> <% end %>"
+<% end -%>
+<% if defined?(@volumegroup) -%>
+VG="<%= @volumegroup %>"
+<% end -%>
