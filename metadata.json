@@ -2,7 +2,7 @@
   "name": "eyp-docker",
   "version": "0.1.6",
   "author": "eyp",
-  "summary": "it just pushes /etc/sysconfig/docker to configure a local registry, does not really manages docker in any way",
+  "summary": "docker basic config",
   "license": "Apache-2.0",
   "source": "",
   "project_page": null,
