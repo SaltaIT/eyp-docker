@@ -1,15 +1,18 @@
 #
 class docker(
-              $insecure_registry=undef,
-              $insecure_registry_port="80",
-              $devs=undef,
-              $volumegroup=undef,
+              $insecure_registry      = undef,
+              $insecure_registry_port = "80",
+              $devs                   = undef,
+              $volumegroup            = undef,
+              $listen                 = [ 'unix:///var/run/docker.sock' ],
             ) inherits docker::params {
 
   #
   Exec {
     path => '/usr/sbin:/usr/bin:/sbin:/bin',
   }
+
+  validate_array($listen)
 
   package { $docker_package:
     ensure => 'installed',
@@ -43,7 +46,6 @@ class docker(
       notify      => Service['docker'],
     }
   }
-
 
   service { 'docker':
     ensure => 'running',

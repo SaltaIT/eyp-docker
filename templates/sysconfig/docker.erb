@@ -5,7 +5,7 @@
 # to the arguments list passed to docker -d
 
 # Modify these options if you want to change the way the docker daemon runs
-OPTIONS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+OPTIONS="<% @listen.each do | value | %> -H <%= value %><% end %>"
 
 
 DOCKER_CERT_PATH=/etc/docker
