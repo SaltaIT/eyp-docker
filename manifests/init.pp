@@ -5,6 +5,8 @@ class docker(
               $devs                   = undef,
               $volumegroup            = undef,
               $listen                 = [ 'unix:///var/run/docker.sock' ],
+              $dicker                 = true,
+              $srcdir                 = '/usr/local/src',
             ) inherits docker::params {
 
   #
@@ -50,6 +52,15 @@ class docker(
   service { 'docker':
     ensure => 'running',
     enable => true,
+  }
+
+  if($dicker)
+  {
+    #untested
+    exec { 'wget dicker':
+      command => "bash -c 'wget $(wget https://api.github.com/repos/jordiprats/dicker/releases/latest -O - 2>/dev/null | grep tarball_url | awk '\"'\"'{ print $2 }'\"'\"' | cut -f2 -d\\\")' -O ${srcdir}/dicker.tgz",
+      creates => "${srcdir}/dicker.tgz",
+    }
   }
 
 
