@@ -4,6 +4,7 @@ class docker::params {
     #docker_package
     'redhat' :
     {
+      $package_type='rpm'
       case $::operatingsystemrelease
       {
         /^6.*$/:

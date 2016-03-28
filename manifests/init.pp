@@ -56,10 +56,8 @@ class docker(
 
   if($dicker)
   {
-    #untested
-    exec { 'wget dicker':
-      command => "bash -c 'wget $(wget https://api.github.com/repos/jordiprats/dicker/releases/latest -O - 2>/dev/null | grep tarball_url | awk '\"'\"'{ print $2 }'\"'\"' | cut -f2 -d\\\")' -O ${srcdir}/dicker.tgz",
-      creates => "${srcdir}/dicker.tgz",
+    class { 'docker::dicker':
+      srcdir => $srcdir,
     }
   }
 
