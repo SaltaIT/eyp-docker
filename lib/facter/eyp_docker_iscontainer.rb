@@ -15,16 +15,19 @@
 # root@474bc61076f5:/# grep -v /$ /proc/1/cgroup | wc -l
 # 9
 
-cgroup = Facter::Util::Resolution.exec('bash -c \'grep -v /$ /proc/1/cgroup | wc -l\'').to_s
+if File.exist?('/proc/1/cgroup')
 
-unless cgroup.nil? or cgroup.empty?
-  Facter.add('eyp_docker_iscontainer') do
-      setcode do
-        if cgroup=="0"
-          false
-        else
-          true
+  cgroup = Facter::Util::Resolution.exec('bash -c \'grep -v /$ /proc/1/cgroup | wc -l\'').to_s
+
+  unless cgroup.nil? or cgroup.empty?
+    Facter.add('eyp_docker_iscontainer') do
+        setcode do
+          if cgroup=="0"
+            false
+          else
+            true
+          end
         end
-      end
+    end
   end
 end
