@@ -1,8 +1,8 @@
 define docker::image(
-                      $github_url   = undef,
-                      $image_origin = 'github',
-                      $imagename    = $name,
-                      $srcdir       = '/usr/local/src',
+                      $github_url      = undef,
+                      $image_origin    = 'github',
+                      $imagename       = $name,
+                      $srcdir          = '/usr/local/src',
                     ) {
 
   Exec {
@@ -28,13 +28,13 @@ define docker::image(
         fail('github url not provided for a github image')
       }
 
-      if ($imagename =~ /^[^\/]*/(.*)$/)
+      if ($github_url =~ /\/([^\/]+)$/)
       {
         $github_reponame = $1
       }
       else
       {
-        $github_reponame = $imagename
+        fail('malformed github url')
       }
 
       exec { 'git clone ${imagename}':
