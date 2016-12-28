@@ -15,7 +15,7 @@ class docker::params {
         {
           $docker_package='docker'
         }
-        default: { fail("Unsupported RHEL/CentOS version!")  }
+        default: { fail('Unsupported RHEL/CentOS version!')  }
       }
     }
     default  : { fail('Unsupported OS!') }

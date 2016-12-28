@@ -51,8 +51,8 @@ define docker::image(
 
       #scheduled
       exec { "git pull ${imagename}":
-        command  => "git pull",
-        unless   => "git pull",
+        command  => 'git pull',
+        unless   => 'git pull',
         cwd      => "${srcdir}/${github_reponame}",
         schedule => 'eyp-docker image daily schedule',
         require  => Exec["git clone ${imagename}"],
