@@ -10,4 +10,6 @@ class docker::swarm() inherits docker::params {
     unless  => 'docker images | grep \'docker.io/swarm\'',
   }
 
+  fail('not implemented')
+
 }
