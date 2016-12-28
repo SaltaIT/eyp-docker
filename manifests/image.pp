@@ -28,7 +28,7 @@ define docker::image(
         fail('github url not provided for a github image')
       }
 
-      if ($github_url =~ /\/([^\/]+)$/)
+      if ($github_url =~ /\/([^\/]+)/?$/)
       {
         $github_reponame = $1
       }
