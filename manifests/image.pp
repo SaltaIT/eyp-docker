@@ -19,6 +19,11 @@ define docker::image(
     unless  => 'which git',
   }
 
+  schedule { 'eyp-docker image daily schedule':
+    period => 'daily',
+    repeat => 1,
+  }
+
   case $image_origin
   {
     'github':
@@ -42,6 +47,15 @@ define docker::image(
         cwd     => $srcdir,
         creates => "${srcdir}/${github_reponame}",
         require => Exec[ [ "eyp-docker image ${imagename} git", "eyp-docker image ${imagename} ${srcdir}" ] ],
+      }
+
+      #scheduled
+      exec { "git pull ${imagename}":
+        command  => "git pull",
+        unless   => "git pull",
+        cwd      => "${srcdir}/${github_reponame}",
+        schedule => 'eyp-docker image daily schedule',
+        require  => Exec["git clone ${imagename}"],
       }
     }
     default:
