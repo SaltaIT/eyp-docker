@@ -37,7 +37,7 @@ define docker::image(
         fail('malformed github url')
       }
 
-      exec { 'git clone ${imagename}':
+      exec { "git clone ${imagename}":
         command => "git clone ${github_url}",
         cwd     => $srcdir,
         creates => "${srcdir}/${github_reponame}",
