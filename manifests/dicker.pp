@@ -23,9 +23,12 @@ class docker::dicker($srcdir = '/usr/local/src') inherits docker::params {
     'rpm':
     {
       exec { 'dicker package install':
-        command => "rpm -Uvh ${srcdir}/dicker.${docker::params::package_type}",
+        command     => "rpm -Uvh ${srcdir}/dicker.${docker::params::package_type}",
         refreshonly => true,
+        require     => Exec['dicker package extract'],
       }
+
+      fail('TODO: millorar instalacio paquet dicker')
     }
     default: { fail('unsupported package type for dicker') }
   }
