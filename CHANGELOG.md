@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.9
+
+* improved **eyp_docker_iscontainer** fact
+
 ## 0.1.8
 
 * added

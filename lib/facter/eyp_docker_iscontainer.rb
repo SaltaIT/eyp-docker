@@ -17,7 +17,7 @@
 
 if File.exist?('/proc/1/cgroup')
 
-  cgroup = Facter::Util::Resolution.exec('bash -c \'grep -v /$ /proc/1/cgroup | wc -l\'').to_s
+  cgroup = Facter::Util::Resolution.exec('bash -c \'grep -v /$ /proc/1/cgroup | grep docker | wc -l\'').to_s
 
   unless cgroup.nil? or cgroup.empty?
     Facter.add('eyp_docker_iscontainer') do
