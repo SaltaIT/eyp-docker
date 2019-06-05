@@ -4,9 +4,9 @@
   "author": "eyp",
   "summary": "docker basic config",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/NTTCom-MS/eyp-nrpe",
+  "project_page": "https://github.com/NTTCom-MS/eyp-nrpe",
+  "issues_url": "https://github.com/NTTCom-MS/eyp-nrpe/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 1.0.0"}
   ],
@@ -33,10 +33,6 @@
     }
   ],
   "requirements": [
-    {
-      "name": "pe",
-      "version_requirement": ">= 3.8.0"
-    },
     {
       "name": "puppet",
       "version_requirement": ">= 3.8.0"
