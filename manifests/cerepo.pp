@@ -1,4 +1,4 @@
-class docker::cerepo inherits docker::params {
+class docker::cerepo() inherits docker::params {
   yumrepo { 'docker':
     ensure  => 'present',
     descr   => 'Docker Community Edition repository for CentOS',

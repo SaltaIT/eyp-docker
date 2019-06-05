@@ -1,5 +1,7 @@
 #
-class docker::dicker($srcdir = '/usr/local/src') inherits docker::params {
+class docker::dicker(
+                      $srcdir = '/usr/local/src'
+                    ) inherits docker::params {
 
   Exec {
     path => '/usr/sbin:/usr/bin:/sbin:/bin',

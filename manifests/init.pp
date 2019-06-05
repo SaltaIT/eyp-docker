@@ -6,6 +6,7 @@ class docker(
               $manage_docker_service = true,
               $service_ensure        = 'running',
               $service_enable        = true,
+              $install_nagios_checks = true,
             ) inherits docker::params {
 
   class { '::docker::install': } ->
