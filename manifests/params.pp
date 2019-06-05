@@ -1,4 +1,7 @@
 class docker::params {
+
+  $service_name = 'docker'
+
   case $::osfamily
   {
     #docker_package
@@ -9,11 +12,11 @@ class docker::params {
       {
         /^6.*$/:
         {
-          $docker_package='docker-io'
+          $package_name='docker-io'
         }
         /^7.*$/:
         {
-          $docker_package='docker'
+          $package_name='docker'
         }
         default: { fail('Unsupported RHEL/CentOS version!')  }
       }

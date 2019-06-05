@@ -1,8 +1,8 @@
 define docker::image(
-                      $github_url      = undef,
-                      $image_origin    = 'github',
-                      $imagename       = $name,
-                      $srcdir          = '/usr/local/src',
+                      $github_url   = undef,
+                      $image_origin = 'github',
+                      $imagename    = $name,
+                      $srcdir       = '/usr/local/src',
                     ) {
 
   Exec {
