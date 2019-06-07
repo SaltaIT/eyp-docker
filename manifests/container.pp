@@ -7,12 +7,21 @@ define docker::container(
     path => '/bin:/sbin:/usr/bin:/usr/sbin',
   }
 
+  if(!defined(File['/usr/local/bin/container_init']))
+  {
+    file { '/usr/local/bin/container_init':
+      ensure  => 'present',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0755',
+      content => file("${module_name}/container_init.sh"),
+    }
+  }
+
   file { "/etc/init.d/dockercontainer_${container_id}":
-    ensure  => 'present',
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0755',
-    content => file("${module_name}/container_init.sh"),
+    ensure  => 'link',
+    target  => '/usr/local/bin/container_init'
+    require => File['/usr/local/bin/container_init'],
   }
 
   case $::osfamily
