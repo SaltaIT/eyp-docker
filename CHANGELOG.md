@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.2.0
+
+* major cleanup and rework. Do **NOT** expect to be compatible with **0.1** branch
+* init script for containers
+
 ## 0.1.9
 
 * improved **eyp_docker_iscontainer** fact
