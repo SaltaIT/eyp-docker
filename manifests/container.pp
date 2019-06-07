@@ -3,9 +3,6 @@ define docker::container(
                           $enable       = 'true',
                           $container_id = $name,
                         ) {
-  Exec {
-    path => '/bin:/sbin:/usr/bin:/usr/sbin',
-  }
 
   if(!defined(File['/usr/local/bin/container_init']))
   {
