@@ -20,7 +20,7 @@ define docker::container(
 
   file { "/etc/init.d/dockercontainer_${container_id}":
     ensure  => 'link',
-    target  => '/usr/local/bin/container_init'
+    target  => '/usr/local/bin/container_init',
     require => File['/usr/local/bin/container_init'],
   }
 
