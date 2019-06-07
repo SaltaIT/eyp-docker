@@ -1,6 +1,6 @@
 define docker::container(
                           $ensure       = 'running',
-                          $enable       = 'true',
+                          $enable       = true,
                           $container_id = $name,
                         ) {
 
