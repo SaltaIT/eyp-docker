@@ -62,7 +62,7 @@ case $1 in
     $0 start
   ;;
   'status')
-  status()
+  status
   ;;
   *)
   echo "$0 $1: unrecognized command"
