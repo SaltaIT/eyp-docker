@@ -21,21 +21,21 @@ define docker::container(
     require => File['/usr/local/bin/container_init'],
   }
 
-  case $::osfamily
-  {
-    'redhat' :
-    {
-      case $::operatingsystemrelease
-      {
-        /^7.*$/:
-        {
+  # case $::osfamily
+  # {
+  #   'redhat' :
+  #   {
+  #     case $::operatingsystemrelease
+  #     {
+  #       /^7.*$/:
+  #       {
           $systemd = true
-        }
-        default: { fail('Unsupported RHEL/CentOS version!')  }
-      }
-    }
-    default  : { fail('Unsupported OS!') }
-  }
+  #       }
+  #       default: { fail('Unsupported RHEL/CentOS version!')  }
+  #     }
+  #   }
+  #   default  : { fail('Unsupported OS!') }
+  # }
 
   if($systemd)
   {
