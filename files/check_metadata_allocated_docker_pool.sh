@@ -1,15 +1,14 @@
 #!/bin/bash
 
-
-wval=70
-cval=80
+WARNING_VALUE=70
+CRITICAL_VALUE=80
 
 while getopts 'd:w:c:' OPTION
 do
   case $OPTION in
-  w)    wval="$OPTARG"
+  w)    WARNING_VALUE="$OPTARG"
         ;;
-  c)    cval="$OPTARG"
+  c)    CRITICAL_VALUE="$OPTARG"
         ;;
   d)    vflag=1
         LVDISK="$OPTARG"
@@ -35,11 +34,11 @@ if [ -z "$METADATA" ];
 then
 	echo "UNKNOWN"
 	exit 3;
-elif [ "$METADATA" -ge "$cval" ];
+elif [ "$METADATA" -ge "$CRITICAL_VALUE" ];
 then
 	echo CRITICAL - $STATUS
 	exit 2
-elif [ "$METADATA" -ge "$wval" ];
+elif [ "$METADATA" -ge "$WARNING_VALUE" ];
 then
 	echo WARNING - $STATUS
 	exit 1
