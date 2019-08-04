@@ -1,5 +1,7 @@
 class docker::install inherits docker {
 
+  fail("TODO: docker-ce")
+
   if($docker::install_nagios_checks)
   {
     include ::docker::checksnagios
