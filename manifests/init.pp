@@ -7,6 +7,7 @@ class docker(
               $service_ensure        = 'running',
               $service_enable        = true,
               $install_nagios_checks = true,
+              $storage_driver        = 'overlay2',
             ) inherits docker::params {
 
   class { '::docker::install': } ->
