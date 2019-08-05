@@ -1,6 +1,13 @@
 class docker::install inherits docker {
 
-  fail("TODO: docker-ce")
+  if($docker::params::repo_docker_ce)
+  {
+    include ::docker::cerepo
+
+    Package[$docker::params::package_name] {
+      require => Class['::docker::cerepo'],
+    }
+  }
 
   if($docker::install_nagios_checks)
   {

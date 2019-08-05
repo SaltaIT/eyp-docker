@@ -12,10 +12,12 @@ class docker::params {
       {
         /^6.*$/:
         {
+          $repo_docker_ce = false
           $package_name='docker-io'
         }
         /^7.*$/:
         {
+          $repo_docker_ce = true
           $package_name='docker'
         }
         default: { fail('Unsupported RHEL/CentOS version!')  }
