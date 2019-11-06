@@ -4,6 +4,7 @@
 
 * major cleanup and rework. Do **NOT** expect to be compatible with **0.1** branch
 * init script for containers
+* added CIS related options
 
 ## 0.1.9
 
