@@ -1,3 +1,12 @@
 {
-  "storage-driver": "<%= @storage_driver %>"
+  "icc": <%= @inter_container_communication %>,
+  "live-restore": <%= @live_restore %>,
+  "iptables": <%= @iptables %>,
+  "storage-driver": "<%= @storage_driver %>",
+  "userland-proxy": <%= @userland_proxy %>,
+  <%- if defined?(@bridge_ip) -%>
+  "bip": "<%= @bridge_ip %>",
+  <%- end -%>
+  "no-new-privileges": <%= @no_new_privileges %>,
+  "log-level": "<%= @log_level %>"
 }
