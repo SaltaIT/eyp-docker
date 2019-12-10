@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.1
+
+* added **docker::audit** for creating auditd ruleset
+
 ## 0.2.0
 
 * major cleanup and rework. Do **NOT** expect to be compatible with **0.1** branch
