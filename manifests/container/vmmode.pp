@@ -22,7 +22,7 @@ define docker::container::vmmode(
 
   if($users!=undef)
   {
-    sudoers::sudo { "sudo docker VM mode ${users} ${${container_name}}":
+    sudoers::sudo { "sudo docker VM mode ${users} ${container_name}":
       description => "docker VM mode for ${container_name}",
       username => $users,
       command => "/usr/local/bin/${container_name}",

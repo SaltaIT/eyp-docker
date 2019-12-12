@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.5
+
+* bugfix **docker::container::vmmode**
+
 ## 0.2.4
 
 * metadata lint
