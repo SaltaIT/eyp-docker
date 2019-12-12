@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.3
+
+* added optional sudo for docker VM mode
+
 ## 0.2.2
 
 * added VM mode script for docker containers

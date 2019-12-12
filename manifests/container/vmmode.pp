@@ -1,5 +1,7 @@
 define docker::container::vmmode(
-                                  $container_name = $name,
+                                  $container_name  = $name,
+                                  $users           = undef,
+                                  $withoutpassword = false,
                                 ) {
 
   if(!defined(File['/usr/local/bin/dockerVMmode.sh']))
@@ -16,5 +18,15 @@ define docker::container::vmmode(
   file { "/usr/local/bin/${container_name}":
     ensure => 'link',
     target => '/usr/local/bin/dockerVMmode.sh',
+  }
+
+  if($users!=undef)
+  {
+    sudoers::sudo { "sudo docker VM mode ${users} ${${container_name}}":
+      description => "docker VM mode for ${container_name}",
+      username => $users,
+      command => "/usr/local/bin/${container_name}",
+      withoutpassword => $withoutpassword,
+    }
   }
 }
