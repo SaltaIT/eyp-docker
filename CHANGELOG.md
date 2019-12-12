@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.4
+
+* metadata lint
+
 ## 0.2.3
 
 * added optional sudo for docker VM mode
