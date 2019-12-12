@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.2
+
+* added VM mode script for docker containers
+
 ## 0.2.1
 
 * added **docker::audit** for creating auditd ruleset
