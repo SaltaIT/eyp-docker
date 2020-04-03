@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.6
+
+* Added flag for not managing docker config
+
 ## 0.2.5
 
 * bugfix **docker::container::vmmode**

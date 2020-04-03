@@ -6,6 +6,7 @@ class docker(
               $manage_docker_service         = true,
               $service_ensure                = 'running',
               $service_enable                = true,
+              $manage_config                 = true,
               $install_nagios_checks         = true,
               $storage_driver                = 'overlay2',
               $inter_container_communication = false,

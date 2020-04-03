@@ -1,6 +1,6 @@
 {
   "name": "eyp-docker",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "author": "eyp",
   "summary": "docker service and container management",
   "license": "Apache-2.0",
