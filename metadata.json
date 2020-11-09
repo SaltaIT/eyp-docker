@@ -1,7 +1,7 @@
 {
   "name": "eyp-docker",
   "version": "0.2.6",
-  "author": "eyp",
+  "author": "Jordi Prats",
   "summary": "docker service and container management",
   "license": "Apache-2.0",
   "source": "https://github.com/SaltaIT/eyp-docker",
